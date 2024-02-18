@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Cifra Club - Chord Remover",
+    "version": "0.1.0",
+    "description": "Chord Remover of Cifra Club",
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://cifraclub.com.br/*.html",
+                "https://www.cifraclub.com.br/*.html"
+            ],
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "thirdParty/jquery.min.js",
+                "chord-remover.js"
+            ]
+        }
+    ]
+}
