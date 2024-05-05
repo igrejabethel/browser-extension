@@ -4,18 +4,24 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	$('pre').each(function () {
+		var song = $('.cifra .t1').text()
+		var artist = $('.cifra .t3').text()
 		var preContent = $(this).html()
 
-		var newContent = preContent
-			.replace('\n ', '\n')
+		const lines = preContent
 			.replace('[Intro]', '')
 			.replace('[Final]', '')
+			.split('\n')
 
-		$(this).html(newContent)
+		const filteredLines = lines.filter(
+			(line) => !/^\s*$/.test(line) && !/\s{2,}/.test(line)
+		)
+
+		const newContent = filteredLines.join('\n')
 
 		$('#cifra_capo').append(
 			`<h2>Lyric</h2>
-<textarea style="width: 500px; height: 400px">${newContent}</textarea>`
+<textarea style="width: 350px; height: 400px">${artist} - ${song}\n\n${song}\n${artist}\n\n${newContent}</textarea>`
 		)
 	})
 })
