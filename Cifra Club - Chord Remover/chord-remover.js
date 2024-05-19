@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 		$('#cifra_capo').append(
 			`<h2>Lyric</h2>
-<textarea style="width: 350px; height: 400px">${artist} - ${song}\n\n${song}\n${artist}\n\n${newContent}</textarea>`
+<textarea id="letra" style="width: 350px; height: 400px">${artist} - ${song}\n\n${song}\n${artist}\n\n${newContent}</textarea>`
 		)
 	})
 })
